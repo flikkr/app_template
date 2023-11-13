@@ -28,7 +28,8 @@ class Gap {
 }
 
 class Pad {
-  static const page = all8;
+  static const pageMobile = all8;
+  static const pageWeb = all16;
 
   static const all4 = EdgeInsets.all(Value.v4);
   static const all8 = EdgeInsets.all(Value.v8);

@@ -1,7 +1,6 @@
 import 'package:app_template/src/auth/application/_auth_service.dart';
 import 'package:app_template/src/auth/application/apple_auth_service.dart';
 import 'package:app_template/src/auth/application/google_auth_service.dart';
-import 'package:app_template/src/common/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:app_template/gen/assets.gen.dart';
 import 'package:widgetbook/widgetbook.dart';
