@@ -3,6 +3,7 @@ import 'package:app_template/src/common/constants/constants.dart';
 import 'package:app_template/src/common/input/password_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:gap/gap.dart';
 
 import 'login_button_group.dart';
 
@@ -35,8 +36,17 @@ class LoginForm extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        logo ?? const Placeholder(fallbackHeight: 200),
-        Gap.h16,
+        SizedBox(
+          width: 200,
+          child: Center(
+            child: logo ??
+                const Placeholder(
+                  fallbackHeight: 100,
+                  fallbackWidth: 200,
+                ),
+          ),
+        ),
+        const Gap(Space.$200),
         FormBuilder(
           key: _formKey,
           child: Column(
@@ -49,12 +59,12 @@ class LoginForm extends StatelessWidget {
                   prefixIcon: const Icon(Icons.email),
                 ),
               ),
-              Gap.formH,
+              const Gap(Space.form),
               PasswordField(
                 name: LoginFormFields.password.name,
                 hintText: LoginFormFields.password.hint,
               ),
-              Gap.h8,
+              const Gap(Space.form),
               SizedBox(
                 width: double.infinity,
                 child: FilledButton(
@@ -69,7 +79,7 @@ class LoginForm extends StatelessWidget {
                   child: const Text('Login'),
                 ),
               ),
-              Gap.formH,
+              const Gap(Space.form),
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
@@ -88,7 +98,7 @@ class LoginForm extends StatelessWidget {
           child: Divider(),
         ),
         const Text('Sign in with '),
-        Gap.formH,
+        const Gap(Space.form),
         LoginButtonGroup(debug: debug),
       ],
     );

@@ -1,6 +1,7 @@
 import 'package:app_template/src/common/constants/constants.dart';
 import 'package:app_template/src/user/domain/user_data.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
@@ -41,7 +42,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 radius: 30,
                 backgroundImage: NetworkImage(widget.user.photoUrl),
               ),
-              Gap.w8,
+              const Gap(Space.form),
               Text(widget.user.name),
             ],
           ),
