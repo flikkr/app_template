@@ -1,6 +1,7 @@
 import 'package:app_template/src/common/constants/constants.dart';
 import 'package:app_template/src/user/domain/user_data.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
@@ -53,8 +54,8 @@ class _AppDrawerState extends State<AppDrawer> {
           label: Text('Profile'),
         ),
         const NavigationDrawerDestination(
-          icon: Icon(Icons.person_outline_rounded),
-          selectedIcon: Icon(Icons.person_rounded),
+          icon: Icon(Icons.star_outline_rounded),
+          selectedIcon: Icon(Icons.star_rounded),
           label: Text('Achievements'),
         ),
         const NavigationDrawerDestination(

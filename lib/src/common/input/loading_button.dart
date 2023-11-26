@@ -24,14 +24,12 @@ enum Button {
 class LoadingButton extends StatefulWidget {
   final bool isLoading;
   final Future<void> Function() onTap;
-  final Widget loadingIndicator;
   final String text;
   final Button buttonType;
 
   const LoadingButton({
     super.key,
     required this.onTap,
-    this.loadingIndicator = const CircularProgressIndicator(),
     this.isLoading = false,
     this.text = 'Press here',
     this.buttonType = Button.filledButton,
@@ -66,10 +64,10 @@ class _LoadingButtonState extends State<LoadingButton> {
 
   Widget child() {
     if (_isLoading) {
-      return SizedBox(
+      return const SizedBox(
         height: 20,
         width: 20,
-        child: widget.loadingIndicator,
+        child: CircularProgressIndicator(),
       );
     } else {
       return Text(widget.text);

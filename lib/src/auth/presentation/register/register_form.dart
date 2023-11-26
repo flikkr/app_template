@@ -5,16 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:gap/gap.dart';
 
-import 'login_button_group.dart';
-
-enum LoginFormFields {
+enum RegisterFormFields {
   email(name: 'email', hint: 'Email'),
-  password(name: 'password', hint: 'Password');
+  password(name: 'password', hint: 'Password'),
+  confirmPassword(name: 'confirm-password', hint: 'Password'),
+  agreeTermsConditions(name: 'agree-terms-conditions', hint: 'Agree terms and conditions');
 
   final String name;
   final String hint;
 
-  const LoginFormFields({
+  const RegisterFormFields({
     required this.name,
     required this.hint,
   });
@@ -41,37 +41,33 @@ class LoginForm extends StatelessWidget {
           child: Center(
             child: logo ??
                 const Placeholder(
-                  fallbackHeight: 200,
+                  fallbackHeight: 100,
                   fallbackWidth: 200,
                 ),
           ),
         ),
-        const Gap(Space.$300),
+        const Gap(Space.$200),
         FormBuilder(
           key: _formKey,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               FormBuilderTextField(
-                name: LoginFormFields.email.name,
+                name: RegisterFormFields.email.name,
                 validator: emailValidator,
                 decoration: InputDecoration(
-                  hintText: LoginFormFields.email.hint,
+                  hintText: RegisterFormFields.email.hint,
                   prefixIcon: const Icon(Icons.email),
                 ),
               ),
               const Gap(Space.form),
               PasswordField(
-                name: LoginFormFields.password.name,
-                hintText: LoginFormFields.password.hint,
+                name: RegisterFormFields.password.name,
+                hintText: RegisterFormFields.password.hint,
               ),
               const Gap(Space.form),
-              TextButton(
-                onPressed: () {},
-                child: const Text(
-                  'Forgot password?',
-                  style: TextStyle(color: Colors.blue),
-                ),
+              FormBuilderCheckbox(
+                name: RegisterFormFields.agreeTermsConditions.name,
+                title: Text(RegisterFormFields.agreeTermsConditions.hint),
               ),
               const Gap(Space.form),
               SizedBox(
@@ -88,29 +84,20 @@ class LoginForm extends StatelessWidget {
                   child: const Text('Login'),
                 ),
               ),
+              const Gap(Space.form),
+              SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Forgot password?',
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
-        Stack(
-          alignment: Alignment.center,
-          children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: Space.$200),
-              child: Divider(),
-            ),
-            Container(
-              padding: const EdgeInsets.all(Space.$075),
-              color: Theme.of(context).scaffoldBackgroundColor,
-              child: Text(
-                'OR',
-                style: TextStyle(
-                  color: Theme.of(context).dividerColor,
-                ),
-              ),
-            ),
-          ],
-        ),
-        LoginButtonGroup(debug: debug),
       ],
     );
   }

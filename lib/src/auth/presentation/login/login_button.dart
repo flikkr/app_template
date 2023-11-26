@@ -21,7 +21,7 @@ Widget loginButtonUseCase(BuildContext context) {
   );
 }
 
-class LoginButton extends StatelessWidget {
+class LoginButton extends StatefulWidget {
   final AuthService authService;
   final bool debug;
 
@@ -32,18 +32,32 @@ class LoginButton extends StatelessWidget {
   });
 
   @override
+  State<LoginButton> createState() => _LoginButtonState();
+}
+
+class _LoginButtonState extends State<LoginButton> {
+  bool _isLoading = false;
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50,
       width: double.infinity,
       child: OutlinedButton.icon(
         icon: getIcon(),
-        onPressed: () {
-          if (debug) return;
-          authService.login();
+        onPressed: () async {
+          if (widget.debug) return;
+          setState(() {
+            _isLoading = true;
+          });
+          try {
+            final res = await widget.authService.login();
+          } catch (e) {
+            print(e);
+          }
         },
         label: Text(
-          'Sign in with ${authService.getServiceName()}',
+          'Sign in with ${widget.authService.getServiceName()}',
           style: const TextStyle(
             color: Colors.black,
             fontSize: 16,
@@ -55,7 +69,7 @@ class LoginButton extends StatelessWidget {
   }
 
   Widget getIcon() {
-    return switch (authService) {
+    return switch (widget.authService) {
       GoogleAuthServiceImpl() => Assets.image.auth.google.image(width: 20),
       AppleAuthServiceImpl() => const Icon(
           Icons.apple,

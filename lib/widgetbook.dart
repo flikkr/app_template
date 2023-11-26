@@ -25,7 +25,7 @@ class WidgetbookApp extends StatelessWidget {
             themes: [
               WidgetbookTheme(
                 name: 'Light',
-                data: AppTheme.light(context),
+                data: AppTheme.light(),
               ),
               WidgetbookTheme(
                 name: 'Dark',
