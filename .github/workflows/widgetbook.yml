@@ -35,11 +35,13 @@ jobs:
         run: flutter pub run build_runner build --delete-conflicting-outputs
 
       - name: Build Widgetbook
-        uses: actions/upload-artifact@v2
+        run: flutter build web -t lib/widgetbook.dart --release
+
+      - name: Build Widgetbook
+        uses: actions/upload-artifact@v3
         with:
           name: widgetbook
-          path: widgetbook/build
-        run: flutter build web -t lib/widgetbook.dart --release
+          path: build/web/
 
   # Single deploy job since we're just deploying
   # deploy:
