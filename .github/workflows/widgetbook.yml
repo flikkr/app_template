@@ -35,7 +35,7 @@ jobs:
         run: flutter pub run build_runner build --delete-conflicting-outputs
 
       - name: Build Widgetbook
-        run: flutter build web -t lib/widgetbook.dart --release
+        run: flutter build web -t lib/widgetbook.dart --release --base-href='/app_template/'
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
