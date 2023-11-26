@@ -58,12 +58,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: widgetbook
+          path: .
 
       - uses: actions/configure-pages@v3
       - uses: actions/upload-pages-artifact@v2
         with:
-          name: widgetbook
-          path: build/web/
+          path: .
 
       - name: Deploy to GitHub Pages
         id: deployment
