@@ -1,3 +1,4 @@
+import 'package:app_template/gen/assets.gen.dart';
 import 'package:app_template/src/auth/presentation/login/login_form.dart';
 import 'package:app_template/src/common/constants/constants.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +9,7 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 Widget loginPageUseCase(BuildContext context) {
   return LoginPage(
     debug: true,
-    coverImage: Image.network(
-      'https://picsum.photos/300',
+    coverImage: Assets.image.static.loginCover.image(
       fit: BoxFit.cover,
       height: double.infinity,
     ),
@@ -32,13 +32,13 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget view;
     if (context.breakpoint > LayoutBreakpoint.md) {
-      view = WideView(
+      view = _WideView(
         debug: debug,
         coverImage: coverImage,
         logo: logo,
       );
     } else {
-      view = NarrowView(
+      view = _NarrowView(
         debug: debug,
         logo: logo,
       );
@@ -48,11 +48,11 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-class NarrowView extends StatelessWidget {
+class _NarrowView extends StatelessWidget {
   final bool debug;
   final Widget? logo;
 
-  const NarrowView({
+  const _NarrowView({
     super.key,
     this.debug = false,
     this.logo,
@@ -72,12 +72,12 @@ class NarrowView extends StatelessWidget {
   }
 }
 
-class WideView extends StatelessWidget {
+class _WideView extends StatelessWidget {
   final bool debug;
   final Widget? coverImage;
   final Widget? logo;
 
-  const WideView({
+  const _WideView({
     super.key,
     this.debug = false,
     this.coverImage,

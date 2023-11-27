@@ -1,10 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
-
-@widgetbook.UseCase(name: 'Settings header', type: Container)
-Widget settingsHeaderUseCase(BuildContext context) {
-  return const SettingsHeader(title: 'Test');
-}
 
 class SettingsHeader extends StatelessWidget {
   const SettingsHeader({

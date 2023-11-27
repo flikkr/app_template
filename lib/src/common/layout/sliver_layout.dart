@@ -1,3 +1,4 @@
+import 'package:app_template/src/common/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
@@ -5,9 +6,13 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 @widgetbook.UseCase(name: 'Sliver list', type: SliverList)
 Widget sliverListUseCase(BuildContext context) {
   return SliverLayout(
-    title: const Text('Sliver list'),
+    title: const Text('Test'),
+    background: Image.network(
+      'https://picsum.photos/200/300',
+      fit: BoxFit.cover,
+    ),
     children: List.generate(
-      10,
+      20,
       (index) => Container(
         // randomise colors
         height: 100,
@@ -21,12 +26,14 @@ class SliverLayout extends StatelessWidget {
   final Widget? title;
   final List<Widget> children;
   final bool pinned;
+  final Widget? background;
 
   const SliverLayout({
     super.key,
     this.title,
     this.children = const [],
     this.pinned = true,
+    this.background,
   });
 
   @override
@@ -38,11 +45,17 @@ class SliverLayout extends StatelessWidget {
             pinned: pinned,
             floating: false,
             expandedHeight: 200,
+            stretch: true,
+            elevation: 0,
             flexibleSpace: FlexibleSpaceBar(
-              background: Container(
-                color: Colors.pink[200],
-              ),
+              background: background,
+              centerTitle: true,
               title: title,
+
+              // titlePadding: EdgeInsets.only(
+              //   right: 100.0,
+              //   bottom: 16,
+              // ),
             ),
           ),
           SliverList(

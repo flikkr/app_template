@@ -6,12 +6,12 @@
     {
       "label": "build runner - watch",
       "type": "shell",
-      "command": "dart run build_runner watch"
+      "command": "dart run build_runner watch --delete-conflicting-outputs"
     },
     {
       "label": "build runner - run",
       "type": "shell",
-      "command": "dart run build_runner build"
-    },
+      "command": "dart run build_runner build --delete-conflicting-outputs"
+    }
   ]
 }
