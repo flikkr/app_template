@@ -53,7 +53,6 @@ class _NarrowView extends StatelessWidget {
   final Widget? logo;
 
   const _NarrowView({
-    super.key,
     this.debug = false,
     this.logo,
   });
@@ -78,7 +77,6 @@ class _WideView extends StatelessWidget {
   final Widget? logo;
 
   const _WideView({
-    super.key,
     this.debug = false,
     this.coverImage,
     this.logo,

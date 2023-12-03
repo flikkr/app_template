@@ -1,4 +1,4 @@
-package com.example.app_template
+package com.musang.tripweaver
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -14,14 +14,6 @@ class AppTheme {
       appBarTheme: _appBarTheme,
     );
   }
-
-  static ThemeData dark() {
-    return ThemeData.dark(useMaterial3: true).copyWith(
-      inputDecorationTheme: _inputDecorationTheme,
-      snackBarTheme: _snackbarThemeData,
-      appBarTheme: _appBarTheme,
-    );
-  }
 }
 
 const _inputDecorationTheme = InputDecorationTheme(

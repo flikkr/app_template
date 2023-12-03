@@ -27,10 +27,6 @@ class WidgetbookApp extends StatelessWidget {
                 name: 'Light',
                 data: AppTheme.light(),
               ),
-              WidgetbookTheme(
-                name: 'Dark',
-                data: AppTheme.dark(),
-              ),
             ],
           ),
           AlignmentAddon(

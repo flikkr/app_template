@@ -1,13 +1,15 @@
 import 'package:app_template/src/auth/presentation/login/login_page.dart';
 import 'package:app_template/src/common/error/error_page.dart';
 import 'package:app_template/src/home/home_page.dart';
+import 'package:app_template/src/trip/presentation/trip_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 enum Routes {
   home('/'),
   login('/login'),
-  settings('/settings');
+  settings('/settings'),
+  allTrips('/trips');
 
   final String path;
 
@@ -15,6 +17,7 @@ enum Routes {
 }
 
 final router = GoRouter(
+  initialLocation: Routes.login.path,
   errorPageBuilder: (context, state) => MaterialPage(
     child: ErrorPage(
       image: Container(),
@@ -34,6 +37,10 @@ final router = GoRouter(
     GoRoute(
       path: Routes.login.path,
       builder: (context, state) => const LoginPage(),
+    ),
+    GoRoute(
+      path: Routes.allTrips.path,
+      builder: (context, state) => const TripPage(),
     ),
   ],
 );
