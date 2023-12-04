@@ -29,6 +29,7 @@ class DatabaseInitialiser implements ServiceInitialiser<SupabaseClient> {
     final supabase = await Supabase.initialize(
       url: url,
       anonKey: anonKey,
+      authFlowType: AuthFlowType.pkce,
     );
     return supabase.client;
   }

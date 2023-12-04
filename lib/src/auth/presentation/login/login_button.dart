@@ -1,8 +1,8 @@
-import 'package:app_template/src/auth/application/_auth_service.dart';
-import 'package:app_template/src/auth/application/apple_auth_service.dart';
-import 'package:app_template/src/auth/application/google_auth_service.dart';
+import 'package:tripweaver/src/auth/application/_auth_service.dart';
+import 'package:tripweaver/src/auth/application/apple_auth_service.dart';
+import 'package:tripweaver/src/auth/application/google_auth_service.dart';
 import 'package:flutter/material.dart';
-import 'package:app_template/gen/assets.gen.dart';
+import 'package:tripweaver/gen/assets.gen.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;

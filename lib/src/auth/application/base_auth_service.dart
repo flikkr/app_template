@@ -1,7 +1,7 @@
-import 'package:app_template/src/auth/application/_auth_service.dart';
-import 'package:app_template/src/auth/application/apple_auth_service.dart';
-import 'package:app_template/src/auth/application/google_auth_service.dart';
-import 'package:app_template/src/user/domain/new_user.dart';
+import 'package:tripweaver/src/auth/application/_auth_service.dart';
+import 'package:tripweaver/src/auth/application/apple_auth_service.dart';
+import 'package:tripweaver/src/auth/application/google_auth_service.dart';
+import 'package:tripweaver/src/user/domain/new_user.dart';
 
 class BaseAuthService {
   void login(AuthService authService) {

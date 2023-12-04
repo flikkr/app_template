@@ -1,4 +1,4 @@
-import 'package:app_template/src/common/input/password_field.dart';
+import 'package:tripweaver/src/common/input/password_field.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;

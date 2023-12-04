@@ -1,33 +1,36 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "widgetbook",
-            "type": "dart",
-            "request": "launch",
-            "program": "lib/widgetbook.dart",
-            "args": ["-d", "macos"],
-            "toolArgs": ["-t"]
-        },
-        {
-            "name": "app_template",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "app_template (profile mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile"
-        },
-        {
-            "name": "app_template (release mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
-        }
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "widgetbook",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/widgetbook.dart",
+      "args": ["-d", "macos"],
+      "toolArgs": ["-t"]
+    },
+    {
+      "name": "app",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      //   "args": ["-d", "macos"],
+      "toolArgs": ["-t"]
+    },
+    {
+      "name": "app (profile mode)",
+      "type": "dart",
+      "request": "launch",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "app (release mode)",
+      "type": "dart",
+      "request": "launch",
+      "flutterMode": "release"
+    }
+  ]
 }

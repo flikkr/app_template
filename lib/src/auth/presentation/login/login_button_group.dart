@@ -1,7 +1,9 @@
-import 'package:app_template/src/auth/application/apple_auth_service.dart';
-import 'package:app_template/src/auth/application/google_auth_service.dart';
-import 'package:app_template/src/auth/presentation/login/login_button.dart';
-import 'package:app_template/src/common/constants/constants.dart';
+import 'dart:io';
+
+import 'package:tripweaver/src/auth/application/apple_auth_service.dart';
+import 'package:tripweaver/src/auth/application/google_auth_service.dart';
+import 'package:tripweaver/src/auth/presentation/login/login_button.dart';
+import 'package:tripweaver/src/common/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -18,6 +20,15 @@ class LoginButtonGroup extends StatelessWidget {
           authService: GoogleAuthServiceImpl(),
           debug: debug,
         ),
+        _showAppleLogin(),
+      ],
+    );
+  }
+
+  Widget _showAppleLogin() {
+    if (Platform.isAndroid) return const SizedBox();
+    return Column(
+      children: [
         const Gap(Space.form),
         LoginButton(
           authService: AppleAuthServiceImpl(),

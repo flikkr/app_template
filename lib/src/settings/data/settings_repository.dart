@@ -1,4 +1,4 @@
-import 'package:app_template/src/settings/domain/settings.dart';
+import 'package:tripweaver/src/settings/domain/settings.dart';
 
 abstract class ISettingsRepository {
   Settings getSettings();

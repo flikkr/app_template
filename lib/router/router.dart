@@ -1,13 +1,15 @@
-import 'package:app_template/src/auth/presentation/login/login_page.dart';
-import 'package:app_template/src/common/error/error_page.dart';
-import 'package:app_template/src/home/home_page.dart';
-import 'package:app_template/src/trip/presentation/trip_page.dart';
+import 'package:tripweaver/src/auth/presentation/login/login_page.dart';
+import 'package:tripweaver/src/common/error/error_page.dart';
+import 'package:tripweaver/src/home/home_page.dart';
+import 'package:tripweaver/src/onboarding/presentation/onboarding_page.dart';
+import 'package:tripweaver/src/trip/presentation/trip_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 enum Routes {
   home('/'),
-  login('/login'),
+  login('/auth/login'),
+  signup('/auth/signup'),
   settings('/settings'),
   allTrips('/trips');
 
@@ -17,7 +19,7 @@ enum Routes {
 }
 
 final router = GoRouter(
-  initialLocation: Routes.login.path,
+  initialLocation: Routes.home.path,
   errorPageBuilder: (context, state) => MaterialPage(
     child: ErrorPage(
       image: Container(),
@@ -28,7 +30,7 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: Routes.home.path,
-      builder: (context, state) => const HomePage(),
+      builder: (context, state) => const OnboardingPage(),
     ),
     // GoRoute(
     //   path: Routes.settings.path,
@@ -41,6 +43,10 @@ final router = GoRouter(
     GoRoute(
       path: Routes.allTrips.path,
       builder: (context, state) => const TripPage(),
+    ),
+    GoRoute(
+      path: Routes.login.path,
+      builder: (context, state) => Container(),
     ),
   ],
 );

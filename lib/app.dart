@@ -1,40 +1,18 @@
-import 'package:app_template/router/router.dart';
+import 'package:layout/layout.dart';
+import 'package:tripweaver/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-
-part 'app.g.dart';
-
-@riverpod
-SupabaseClient supabaseClient(SupabaseClientRef ref) {
-  return Supabase.instance.client;
-}
-
-@riverpod
-GoTrueClient supabaseAuth(SupabaseAuthRef ref) {
-  final client = ref.watch(supabaseClientProvider);
-  return client.auth;
-}
-
-@riverpod
-Stream<AuthState> authStateStream(AuthStateStreamRef ref) {
-  final auth = ref.watch(supabaseAuthProvider);
-  return auth.onAuthStateChange;
-}
+import 'package:tripweaver/theme/app_theme.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ProviderScope(
+    return Layout(
       child: MaterialApp.router(
-        title: 'My App',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        title: 'Tripweaver',
+        theme: AppTheme.light(),
         routerConfig: router,
       ),
     );

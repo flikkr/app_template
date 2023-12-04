@@ -1,6 +1,6 @@
-import 'package:app_template/gen/assets.gen.dart';
-import 'package:app_template/src/auth/presentation/login/login_form.dart';
-import 'package:app_template/src/common/constants/constants.dart';
+import 'package:tripweaver/gen/assets.gen.dart';
+import 'package:tripweaver/src/auth/presentation/login/login_form.dart';
+import 'package:tripweaver/src/common/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:layout/layout.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;

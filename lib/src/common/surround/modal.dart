@@ -1,4 +1,4 @@
-import 'package:app_template/src/common/constants/constants.dart';
+import 'package:tripweaver/src/common/constants/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';

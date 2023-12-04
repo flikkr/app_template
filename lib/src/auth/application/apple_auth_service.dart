@@ -1,4 +1,4 @@
-import 'package:app_template/src/auth/application/_auth_service.dart';
+import 'package:tripweaver/src/auth/application/_auth_service.dart';
 
 class AppleAuthServiceImpl implements AuthService {
   @override

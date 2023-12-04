@@ -1,4 +1,4 @@
-import 'package:app_template/src/settings/data/settings_repository.dart';
+import 'package:tripweaver/src/settings/data/settings_repository.dart';
 import 'package:flutter/material.dart';
 
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;

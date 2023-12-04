@@ -1,5 +1,5 @@
-import 'package:app_template/src/common/constants/constants.dart';
-import 'package:app_template/src/user/domain/user_data.dart';
+import 'package:tripweaver/src/common/constants/constants.dart';
+import 'package:tripweaver/src/user/domain/user_data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';

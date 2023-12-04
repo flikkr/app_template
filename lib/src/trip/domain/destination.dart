@@ -1,21 +1,21 @@
 import 'package:tripweaver/database/supabase_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'trip.freezed.dart';
-part 'trip.g.dart';
+part 'destination.freezed.dart';
+part 'destination.g.dart';
 
 @freezed
-class Trip with _$Trip implements SupabaseTable {
-  const Trip._();
+class Destination with _$Destination implements SupabaseTable {
+  const Destination._();
 
-  const factory Trip({
+  const factory Destination({
     required String id,
     required String name,
     required String description,
     required String imageUrl,
-  }) = _Trip;
+  }) = _Destination;
 
-  factory Trip.fromJson(Map<String, dynamic> json) => _$TripFromJson(json);
+  factory Destination.fromJson(Map<String, dynamic> json) => _$DestinationFromJson(json);
 
   @override
   String get tableName => 'trip';

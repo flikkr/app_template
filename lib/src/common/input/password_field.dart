@@ -1,4 +1,4 @@
-import 'package:app_template/src/auth/presentation/auth_input_validator.dart';
+import 'package:tripweaver/src/auth/presentation/auth_input_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
