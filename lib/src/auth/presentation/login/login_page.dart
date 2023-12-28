@@ -1,3 +1,4 @@
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:tripweaver/gen/assets.gen.dart';
 import 'package:tripweaver/src/auth/presentation/login/login_form.dart';
 import 'package:tripweaver/src/common/constants/constants.dart';
@@ -15,6 +16,9 @@ Widget loginPageUseCase(BuildContext context) {
     ),
   );
 }
+
+// @riverpod
+
 
 class LoginPage extends StatelessWidget {
   final bool debug;
@@ -60,11 +64,13 @@ class _NarrowView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: Pad.pageMobile,
-        child: LoginForm(
-          debug: debug,
-          logo: logo,
+      child: Center(
+        child: Padding(
+          padding: Pad.pageMobile,
+          child: LoginForm(
+            debug: debug,
+            logo: logo,
+          ),
         ),
       ),
     );

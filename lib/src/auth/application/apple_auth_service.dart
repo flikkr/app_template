@@ -1,8 +1,9 @@
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:tripweaver/src/auth/application/_auth_service.dart';
 
-class AppleAuthServiceImpl implements AuthService {
+class AppleAuthServiceImpl implements AuthService<AuthResponse> {
   @override
-  Future<void> login() {
+  Future<AuthResponse?> login() {
     // TODO:
     throw UnimplementedError();
   }

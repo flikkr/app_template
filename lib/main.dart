@@ -6,6 +6,9 @@ import 'package:tripweaver/util/env.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await DatabaseInitialiser(url: Env.supabaseUrl, anonKey: Env.supabaseAnonKey).initialise();
-  runApp(const ProviderScope(child: App()));
+  await SupabaseInitialiser(url: Env.supabaseUrl, anonKey: Env.supabaseAnonKey).initialise();
+  await FirebaseInitialiser().initialise();
+  runApp(
+    const ProviderScope(child: App()),
+  );
 }

@@ -9,17 +9,15 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 // }
 
 class SettingsPage extends StatelessWidget {
-  final ISettingsRepository settingsRepository;
-
-  const SettingsPage({super.key, required this.settingsRepository});
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Text('Hello there')
+            Text('Hello there')
             // SettingsHeader(title: "Hello"),
           ],
         ),

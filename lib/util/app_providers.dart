@@ -4,21 +4,12 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 part 'app_providers.g.dart';
 
-@riverpod
-SupabaseClient supabaseClient(SupabaseClientRef ref) {
-  return Supabase.instance.client;
-}
-
-@riverpod
-GoTrueClient supabaseAuth(SupabaseAuthRef ref) {
-  final client = ref.watch(supabaseClientProvider);
-  return client.auth;
-}
+final supabase = Supabase.instance.client;
+final supabaseAuth = supabase.auth;
 
 @riverpod
 Stream<AuthState> authStateStream(AuthStateStreamRef ref) {
-  final auth = ref.watch(supabaseAuthProvider);
-  return auth.onAuthStateChange;
+  return supabaseAuth.onAuthStateChange;
 }
 
 @riverpod

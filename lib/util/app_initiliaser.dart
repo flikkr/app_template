@@ -1,25 +1,26 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:tripweaver/firebase_options.dart';
 
 abstract class ServiceInitialiser<T> {
   Future<T> initialise();
 }
 
-class PackageInfoInitialiser implements ServiceInitialiser {
-  PackageInfo? _packageInfo;
-  get packageInfo => _packageInfo;
-
+class PackageInfoInitialiser implements ServiceInitialiser<PackageInfo> {
   @override
-  Future<void> initialise() async {
-    _packageInfo = await PackageInfo.fromPlatform();
+  Future<PackageInfo> initialise() async {
+    return await PackageInfo.fromPlatform();
   }
 }
 
-class DatabaseInitialiser implements ServiceInitialiser<SupabaseClient> {
+class SupabaseInitialiser implements ServiceInitialiser<SupabaseClient> {
   final String url;
   final String anonKey;
 
-  DatabaseInitialiser({
+  SupabaseInitialiser({
     required this.url,
     required this.anonKey,
   });
@@ -29,8 +30,18 @@ class DatabaseInitialiser implements ServiceInitialiser<SupabaseClient> {
     final supabase = await Supabase.initialize(
       url: url,
       anonKey: anonKey,
-      authFlowType: AuthFlowType.pkce,
     );
     return supabase.client;
+  }
+}
+
+class FirebaseInitialiser implements ServiceInitialiser<FirebaseApp> {
+  @override
+  Future<FirebaseApp> initialise() async {
+    final app = await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+    return app;
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:layout/layout.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
@@ -8,7 +9,11 @@ import 'theme/app_theme.dart';
 import 'widgetbook.directories.g.dart';
 
 void main() {
-  runApp(const WidgetbookApp());
+  runApp(
+    const ProviderScope(
+      child: WidgetbookApp(),
+    ),
+  );
 }
 
 @widgetbook.App()

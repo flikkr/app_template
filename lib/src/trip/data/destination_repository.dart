@@ -11,6 +11,11 @@ class DestinationRepository implements Readable<Destination>, Writable<Destinati
     // TODO: implement create
     throw UnimplementedError();
   }
+
+  @override
+  Future<Destination> createMany(List<Destination> data) {
+    throw UnimplementedError();
+  }
   
   @override
   Future<Destination> delete(String id) {

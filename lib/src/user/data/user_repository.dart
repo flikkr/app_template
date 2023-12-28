@@ -1,6 +1,6 @@
 import 'package:tripweaver/database/crud.dart';
 
-// class UserRepository implements Readable<User> {
+// class UserRepository {
 //   @override
 //   Future<dynamic> get(String id) {
 //     // TODO: implement get

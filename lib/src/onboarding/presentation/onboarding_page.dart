@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tripweaver/router/router.dart';
-import 'package:tripweaver/src/common/constants/constants.dart';
 import 'package:tripweaver/src/onboarding/presentation/onboarding_item.dart';
 
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'Onboarding page', type: OnboardingPage)
 Widget onboardingPageUseCase(BuildContext context) {
-  return const OnboardingPage();
+  return OnboardingPage(onFinish: () {});
 }
 
 const List<Widget> pages = [
@@ -30,7 +29,12 @@ const List<Widget> pages = [
 ];
 
 class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({super.key});
+  final void Function() onFinish;
+
+  const OnboardingPage({
+    super.key,
+    required this.onFinish,
+  });
 
   @override
   State<OnboardingPage> createState() => _OnboardingPageState();
@@ -73,13 +77,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             );
                           }
                         },
-                        child: Text('Next'),
+                        child: const Text('Next'),
                       ),
                     ),
                     SizedBox(
                       width: double.infinity,
                       child: TextButton(
-                        onPressed: () => context.go(Routes.login.path),
+                        onPressed: widget.onFinish,
                         child: const Text('Skip'),
                       ),
                     )

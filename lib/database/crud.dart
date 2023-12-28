@@ -1,19 +1,18 @@
-import './supabase_entity.dart';
-
-abstract class Readable<T extends SupabaseTable> {
+abstract class Readable<T> {
   Future<List<T>> getAll(int page, int size);
   Future<T> get(String id);
 }
 
-abstract class Writable<T extends SupabaseTable> {
+abstract class Writable<T> {
   Future<T> create(T data);
+  Future<T> createMany(List<T> data);
 }
 
-abstract class Deletable<T extends SupabaseTable> {
+abstract class Deletable<T> {
   Future<T> delete(String id);
 }
 
-abstract class Updatable<T extends SupabaseTable> {
+abstract class Updatable<T> {
   Future<T> update(T data);
 }
 

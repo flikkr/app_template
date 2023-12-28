@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:tripweaver/router/router.dart';
+import 'package:tripweaver/src/common/menu/nav_drawer.dart';
 
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
@@ -14,12 +17,17 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('aaaa'),
+        title: const Text('Home'),
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text('hello')],
+          children: [
+            ElevatedButton(
+              onPressed: () => context.go(Routes.allTrips.path),
+              child: const Text('All trips'),
+            ),
+          ],
         ),
       ),
     );

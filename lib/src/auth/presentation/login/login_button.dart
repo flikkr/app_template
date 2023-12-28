@@ -1,3 +1,5 @@
+import 'package:go_router/go_router.dart';
+import 'package:tripweaver/router/router.dart';
 import 'package:tripweaver/src/auth/application/_auth_service.dart';
 import 'package:tripweaver/src/auth/application/apple_auth_service.dart';
 import 'package:tripweaver/src/auth/application/google_auth_service.dart';
@@ -21,7 +23,7 @@ Widget loginButtonUseCase(BuildContext context) {
   );
 }
 
-class LoginButton extends StatefulWidget {
+class LoginButton extends StatelessWidget {
   final AuthService authService;
   final bool debug;
 
@@ -32,54 +34,54 @@ class LoginButton extends StatefulWidget {
   });
 
   @override
-  State<LoginButton> createState() => _LoginButtonState();
-}
-
-class _LoginButtonState extends State<LoginButton> {
-  bool _isLoading = false;
-
-  @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50,
       width: double.infinity,
       child: OutlinedButton.icon(
-        icon: getIcon(),
-        onPressed: () async {
-          if (widget.debug) return;
-          setState(() {
-            _isLoading = true;
-          });
-          try {
-            final res = await widget.authService.login();
-          } catch (e) {
-            print(e);
-          }
-        },
+        icon: _getIcon(),
+        onPressed: () async => login(context),
         label: Text(
-          'Sign in with ${widget.authService.getServiceName()}',
+          'Sign in with ${authService.getServiceName()}',
           style: const TextStyle(
             color: Colors.black,
             fontSize: 16,
           ),
         ),
-        style: getStyle(context),
+        style: _getStyle(context),
       ),
     );
   }
 
-  Widget getIcon() {
-    return switch (widget.authService) {
-      GoogleAuthServiceImpl() => Assets.image.auth.google.image(width: 20),
-      AppleAuthServiceImpl() => const Icon(
-          Icons.apple,
-          color: Colors.black,
+  Future<void> login(BuildContext context) async {
+    if (debug || !context.mounted) return;
+    try {
+      final res = await authService.login();
+      final user = res?.user;
+      if (user == null) {
+        throw 'No user found';
+      }
+      // ignore: use_build_context_synchronously
+      context.go(Routes.home.path);
+    } catch (e) {
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: SelectableText(e.toString()),
         ),
+      );
+    }
+  }
+
+  Widget _getIcon() {
+    return switch (authService) {
+      GoogleAuthServiceImpl() => Assets.image.auth.google.image(width: 20),
+      AppleAuthServiceImpl() => const Icon(Icons.apple, color: Colors.black),
       _ => Container(),
     };
   }
 
-  ButtonStyle getStyle(context) {
+  ButtonStyle _getStyle(context) {
     return ButtonStyle(
       backgroundColor: const MaterialStatePropertyAll(Colors.white),
       side: MaterialStateProperty.all(
